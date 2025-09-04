@@ -1,0 +1,19 @@
+;This contents file was created with the free trial version of HelpScribble 8.3.3
+;Help files created with the free trial version must not be distributed.
+
+:BASE Test.hlp
+:TITLE Compressor Help File
+1 Usage
+2 Usage=Scribble10
+1 Included algorithms
+2 RLE compression methods=Scribble15
+1 Examples
+2 Examples=Scribble20
+1 Required programs
+2 Links to required programs=Scribble14
+1 Further reading
+2 Further reading=Scribble12
+1 Source code for RLE with control flags 
+2 C source code for RLE with control flags=Scribble13
+1 Source code for standard RLE
+2 C source code for standard RLE=Scribble11

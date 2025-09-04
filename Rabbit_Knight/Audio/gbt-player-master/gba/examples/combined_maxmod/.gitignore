@@ -1,0 +1,6 @@
+*.gba
+*.elf
+*.sav
+build/
+music/
+maxmod/

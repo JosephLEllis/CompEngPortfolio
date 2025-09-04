@@ -1,0 +1,417 @@
+ROM0 bank #0:
+  SECTION: $0000-$ffffffff ($0000 bytes) ["Charmap"]
+  SECTION: $0000-$0030 ($0031 bytes) ["ANIMATION REGISTRY TABLE"]
+           $0000 = AnimationRegistry
+  SECTION: $0031-$003d ($000d bytes) ["ANIM OFFSET AND TRACKER TABLES"]
+           $0031 = ANIM_OFFSET_TABLE
+           $0038 = FRAME_TRACKER_OFFSET_TABLE
+  SECTION: $003e-$003e ($0001 byte) ["Constants"]
+  SECTION: $0040-$0042 ($0003 bytes) ["VBlank interrupt vector"]
+  SECTION: $0043-$0046 ($0004 bytes) ["Level data addr. table"]
+  SECTION: $0048-$004a ($0003 bytes) ["STAT interrupt vector"]
+  SECTION: $0050-$0052 ($0003 bytes) ["Timer interrupt vector"]
+  SECTION: $0053-$00e5 ($0093 bytes) ["Rory intro map"]
+           $0053 = rory_intro
+  SECTION: $00e6-$00fd ($0018 bytes) ["VBlank interrupts handlers"]
+           $00e6 = VBLANK_IH
+  SECTION: $0100-$014e ($004f bytes) ["ROM Entry"]
+  SECTION: $014f-$094e ($0800 bytes) ["Title logo tileset first"]
+           $014f = rk_title_tileset_p1
+  SECTION: $094f-$0dbe ($0470 bytes) ["rory det face tiles"]
+           $094f = rory_det_tileset
+  SECTION: $0dbf-$121e ($0460 bytes) ["rory face blink tiles"]
+           $0dbf = rory_face_bl_tileset
+  SECTION: $121f-$167e ($0460 bytes) ["rory face tiles"]
+           $121f = rory_face_tileset
+  SECTION: $167f-$1a9e ($0420 bytes) ["Mushroom attack tiles"]
+           $167f = mushroom_attack_tiles
+  SECTION: $1a9f-$1e0d ($036f bytes) ["Main"]
+           $1a9f = initRAM
+           $1aa8 = initRAM.DMACpy
+           $1ab8 = initRAM.clear_OAM
+           $1b82 = titleScreen
+           $1b9b = Start
+           $1bb5 = IntroCutScene
+  SECTION: $1e0e-$20ed ($02e0 bytes) ["Font tile data"]
+           $1e0e = fontTiles
+  SECTION: $20ee-$23bc ($02cf bytes) ["Text"]
+           $20ee = PS
+           $20fb = Blank
+           $2108 = CL1
+           $2147 = CL4
+           $2186 = BL1
+           $21c5 = BL4
+           $2204 = MA1
+           $2243 = MA4
+           $2282 = KI1
+           $22c1 = KI4
+           $2300 = RI1
+           $233f = RI4
+           $237e = RI7
+  SECTION: $23bd-$266c ($02b0 bytes) ["Knight scene tiles"]
+           $23bd = knight_tileset
+  SECTION: $266d-$290c ($02a0 bytes) ["Story tiles"]
+           $27bd = rk_castle_tiles
+  SECTION: $290d-$2bac ($02a0 bytes) ["Title logo tileset second"]
+           $290d = rk_title_tileset_p2
+  SECTION: $2bad-$2e2c ($0280 bytes) ["Rory tiles"]
+           $2bad = rory_tileset
+  SECTION: $2e2d-$2f75 ($0149 bytes) ["Title logo map first"]
+           $2e2d = splashScreen
+  SECTION: $2f76-$302b ($00b6 bytes) ["Castle background"]
+           $2f76 = story_castle
+  SECTION: $302c-$30ab ($0080 bytes) ["rory_fall_sprite"]
+           $302c = rory_fall_sprite
+  SECTION: $30ac-$3121 ($0076 bytes) ["rory face map"]
+           $30ac = rory_face
+  SECTION: $3122-$3197 ($0076 bytes) ["rory face det map"]
+           $3122 = rory_face_determined
+  SECTION: $3198-$320d ($0076 bytes) ["rory face blink map"]
+           $3198 = rory_face_blink
+  SECTION: $320e-$327f ($0072 bytes) ["Knight intro background"]
+           $320e = knights_intro
+  SECTION: $3280-$32ef ($0070 bytes) ["Mushroom attack map"]
+           $3280 = mushroom_attack
+  SECTION: $32f0-$3312 ($0023 bytes) ["STAT interrupt handlers"]
+           $32f0 = STAT_IH
+           $32ff = STAT_IH.waitHBlank
+           $3308 = STAT_IH.firstScanLine
+           $3310 = STAT_IH.finish
+  SECTION: $3313-$3324 ($0012 bytes) ["Timer interrupt handlers"]
+           $3313 = Timer_IH
+  SECTION: $3325-$332e ($000a bytes) ["Black background"]
+           $3325 = rk_black_background
+  SECTION: $332f-$3336 ($0008 bytes) ["Math"]
+           $332f = addFixedPoint
+  SECTION: $3337-$333c ($0006 bytes) ["Text box"]
+           $3337 = textBox
+  SECTION: $333d-$3342 ($0006 bytes) ["TIMER LUTS"]
+           $333d = TIMER_ROUTINE_ADDR_LUT
+    SLACK: $0cc6 bytes
+
+ROMX bank #1:
+  SECTION: $4000-$3fff ($0000 bytes) ["Main game"]
+  SECTION: $4000-$4646 ($0647 bytes) ["GBT_WAVEBANK"]
+           $4000 = gbt_wave
+           $4080 = gbt_noise
+           $4090 = gbt_frequencies
+           $4120 = _gbt_get_freq_from_index
+           $412c = gbt_channel_1_handle
+           $413f = gbt_channel_1_handle.more_bytes
+           $4145 = gbt_channel_1_handle.one_more_byte
+           $4146 = gbt_channel_1_handle.no_more_bytes_this_channel
+           $4147 = gbt_channel_1_handle.channel1_enabled
+           $4156 = gbt_channel_1_handle.just_set_volume
+           $415f = gbt_channel_1_handle.instr_effects
+           $416f = gbt_channel_1_handle.has_frequency
+           $4197 = gbt_channel_1_handle.freq_instr_and_effect
+           $41a5 = gbt_channel_1_handle.refresh_channel1_regs
+           $41a5 = channel1_refresh_registers
+           $41bf = channel1_update_effects
+           $41d4 = channel1_update_effects.dont_cut
+           $41f3 = channel1_update_effects.not_tick_0
+           $420c = channel1_update_effects.not_tick_1
+           $4220 = gbt_channel_1_set_effect
+           $422e = gbt_channel_1_set_effect.gbt_ch1_jump_table
+           $424e = gbt_channel_1_set_effect.gbt_ch1_pan
+           $4255 = gbt_channel_1_set_effect.gbt_ch1_arpeggio
+           $4270 = gbt_channel_1_set_effect.gbt_ch1_cut_note
+           $4275 = gbt_channel_2_handle
+           $4288 = gbt_channel_2_handle.more_bytes
+           $428e = gbt_channel_2_handle.one_more_byte
+           $428f = gbt_channel_2_handle.no_more_bytes_this_channel
+           $4290 = gbt_channel_2_handle.channel2_enabled
+           $429f = gbt_channel_2_handle.just_set_volume
+           $42a8 = gbt_channel_2_handle.instr_effects
+           $42b8 = gbt_channel_2_handle.has_frequency
+           $42e0 = gbt_channel_2_handle.freq_instr_and_effect
+           $42ee = gbt_channel_2_handle.refresh_channel2_regs
+           $42ee = channel2_refresh_registers
+           $4305 = channel2_update_effects
+           $431a = channel2_update_effects.dont_cut
+           $4339 = channel2_update_effects.not_tick_0
+           $4352 = channel2_update_effects.not_tick_1
+           $4366 = gbt_channel_2_set_effect
+           $4374 = gbt_channel_2_set_effect.gbt_ch2_jump_table
+           $4394 = gbt_channel_2_set_effect.gbt_ch2_pan
+           $439b = gbt_channel_2_set_effect.gbt_ch2_arpeggio
+           $43b6 = gbt_channel_2_set_effect.gbt_ch2_cut_note
+           $43bb = gbt_channel_3_handle
+           $43ce = gbt_channel_3_handle.more_bytes
+           $43d4 = gbt_channel_3_handle.one_more_byte
+           $43d5 = gbt_channel_3_handle.no_more_bytes_this_channel
+           $43d6 = gbt_channel_3_handle.channel3_enabled
+           $43e5 = gbt_channel_3_handle.just_set_volume
+           $43ee = gbt_channel_3_handle.effects
+           $43f7 = gbt_channel_3_handle.has_frequency
+           $441c = gbt_channel_3_handle.freq_instr_and_effect
+           $442a = gbt_channel_3_handle.refresh_channel3_regs
+           $442a = channel3_refresh_registers
+           $4451 = gbt_channel3_load_instrument
+           $4461 = gbt_channel3_load_instrument.loop
+           $4468 = channel3_update_effects
+           $4481 = channel3_update_effects.dont_cut
+           $44a0 = channel3_update_effects.not_tick_0
+           $44b9 = channel3_update_effects.not_tick_1
+           $44cd = gbt_channel_3_set_effect
+           $44db = gbt_channel_3_set_effect.gbt_ch3_jump_table
+           $44fb = gbt_channel_3_set_effect.gbt_ch3_pan
+           $4502 = gbt_channel_3_set_effect.gbt_ch3_arpeggio
+           $451d = gbt_channel_3_set_effect.gbt_ch3_cut_note
+           $4522 = gbt_channel_4_handle
+           $4535 = gbt_channel_4_handle.more_bytes
+           $453b = gbt_channel_4_handle.one_more_byte
+           $453c = gbt_channel_4_handle.no_more_bytes_this_channel
+           $453d = gbt_channel_4_handle.channel4_enabled
+           $454c = gbt_channel_4_handle.just_set_volume
+           $4555 = gbt_channel_4_handle.effects
+           $455e = gbt_channel_4_handle.has_instrument
+           $457a = gbt_channel_4_handle.instr_and_effect
+           $457f = gbt_channel_4_handle.refresh_channel4_regs
+           $457f = channel4_refresh_registers
+           $4591 = channel4_update_effects
+           $45a6 = channel4_update_effects.dont_cut
+           $45a8 = gbt_channel_4_set_effect
+           $45b6 = gbt_channel_4_set_effect.gbt_ch4_jump_table
+           $45d6 = gbt_channel_4_set_effect.gbt_ch4_pan
+           $45dd = gbt_channel_4_set_effect.gbt_ch4_cut_note
+           $45e2 = gbt_ch1234_nop
+           $45e4 = gbt_ch1234_jump_pattern
+           $45f5 = gbt_ch1234_jump_position
+           $4607 = gbt_ch1234_speed
+           $460f = gbt_update_bank1
+           $462a = gbt_update_effects_bank1
+  SECTION: $4647-$4bc3 ($057d bytes) ["HUD constants"]
+           $4647 = @
+           $4647 = ScytheIcon
+           $464b = HealthBarIcon
+           $4650 = StartScore
+           $4656 = ScytheStartScore
+           $465a = updatePosition
+           $4667 = updatePosition.playerCrossedThreshold
+           $466a = updatePosition.cont
+           $46d0 = applyGravity
+           $46e0 = applyGravity.snapToGrid
+           $4718 = initGameGrafx
+           $48ba = updateAnimations
+           $48c1 = updateAnimations.iterate
+           $4912 = updateAnimations.startTableLookup
+           $492e = updateAnimations.cont
+           $4944 = updateAnimations.updateSpriteTilesForAnimations
+           $4972 = updateAnimations.setAnimDone
+           $4993 = updateAnimations.notReadyToUpdate
+           $49a0 = transitionLogicFSM
+           $49ac = updateFSM
+           $49b1 = Idle
+           $49d6 = NextStateIdle
+           $49e0 = NextStateRunning
+           $49e9 = NextStateRolling
+           $49f3 = NextStateSlashing
+           $49fc = NextStateJumping
+           $4a06 = NextStateInAir
+           $4a0b = NextStateSwordFall
+           $4a15 = Running
+           $4a35 = Running.PadRightPressed
+           $4a4a = Running.flip
+           $4a88 = Rolling
+           $4a9a = Rolling.waitLoaded
+           $4a9e = Rolling.wait
+           $4aca = Slashing
+           $4ae0 = Slashing.wait
+           $4af9 = Jumping
+           $4b05 = inAir
+           $4b21 = inAir.LeftDPadPressed
+           $4b2f = inAir.RightDPadPressed
+           $4b3d = SwordFall
+           $4b46 = checkPlayerPosRelToCam
+           $4b5b = checkPlayerPosRelToCam.right
+           $4b63 = checkPlayerPosRelToCam.noScroll
+           $4b67 = checkPlayerPosRelToCam.hasLeftDeadzoneRight
+           $4b70 = checkPlayerPosRelToCam.updateCam
+           $4b81 = checkPlayerBoundingBox
+           $4bb5 = checkPlayerBoundingBox.noCollision
+           $4bb9 = playLoop
+  SECTION: $4bc4-$4ea3 ($02e0 bytes) ["Stage_s1_tiles"]
+           $4bc4 = Stage_s1_tiles
+  SECTION: $4ea4-$5123 ($0280 bytes) ["rory_roll_sprite"]
+           $4ea4 = rory_roll_sprite
+  SECTION: $5124-$532f ($020c bytes) ["GBT_PLAYER"]
+           $5124 = gbt_get_pattern_ptr
+           $5146 = gbt_get_pattern_ptr_banked
+           $5158 = gbt_get_pattern_ptr_banked.dont_loop
+           $515e = gbt_play
+           $520a = gbt_pause
+           $5214 = gbt_pause.gbt_pause_unmute
+           $5220 = gbt_loop
+           $5224 = gbt_stop
+           $522f = gbt_enable_channels
+           $5233 = gbt_update
+           $524d = gbt_update.dontexit
+           $5275 = gbt_update.dont_stop
+           $5288 = gbt_update.copy_loop
+           $5295 = gbt_update.more_bytes
+           $529c = gbt_update.one_more_byte
+           $529f = gbt_update.no_more_bytes_this_channel
+           $52de = gbt_update.loop_disabled
+           $52e3 = gbt_update.dont_increment_pattern
+           $52e3 = gbt_update.not_ended
+           $52e3 = gbt_update.end_handling_steps_pattern
+           $5313 = gbt_update.next_channel
+           $531e = gbt_update.next_channel_more_bytes
+           $5323 = gbt_update.next_channel_one_more_byte
+           $5324 = gbt_update.next_channel_no_more_bytes_this_channel
+  SECTION: $5330-$54ef ($01c0 bytes) ["rory_sword_sprite"]
+           $5330 = rory_sword_sprite
+  SECTION: $54f0-$566f ($0180 bytes) ["rory_walk_sprite"]
+           $54f0 = rory_walk_sprite
+  SECTION: $5670-$57d7 ($0168 bytes) ["Stage_s1"]
+           $5670 = Stage_s1
+  SECTION: $57d8-$593f ($0168 bytes) ["Stage_s2"]
+           $57d8 = Stage_s2
+  SECTION: $5940-$5a3f ($0100 bytes) ["HUD SYMBOLS"]
+           $5940 = HUD_SYMBOLS
+  SECTION: $5a40-$5b1f ($00e0 bytes) ["Walking mushroom tiles"]
+           $5a40 = WalkingMushroomTilesStart
+  SECTION: $5b20-$5bdf ($00c0 bytes) ["Scythe disp tiles"]
+           $5b20 = ScytheDispStart
+  SECTION: $5be0-$5c7f ($00a0 bytes) ["rory_jump_sprite"]
+           $5be0 = rory_jump_sprite
+  SECTION: $5c80-$5d0a ($008b bytes) ["Player animation frames"]
+           $5c80 = idleAnim
+           $5c85 = idleAnimEnd
+           $5c85 = runAnim
+           $5c99 = runAnimEnd
+           $5c99 = jumpAnim
+           $5c9e = jumpAnimEnd
+           $5c9e = swordAnim
+           $5cbe = swordAnimEnd
+           $5cbe = swordFallAnim
+           $5cc3 = swordFallAnimEnd
+           $5cc3 = rollAnim
+           $5d0b = rollAnimEnd
+  SECTION: $5d0b-$5d64 ($005a bytes) ["Stage s1 collision data"]
+           $5d0b = s1colMapStart
+  SECTION: $5d65-$5da0 ($003c bytes) ["HUD"]
+           $5d65 = HUD
+  SECTION: $5da1-$5dc0 ($0020 bytes) ["PlayerObj"]
+           $5da1 = player_obj_data
+  SECTION: $5dc1-$5dce ($000e bytes) ["Player FSM state table"]
+           $5dc1 = tPlayerStateTable
+  SECTION: $5dcf-$5dda ($000c bytes) ["PowerUpObj"]
+           $5dcf = powerup_obj_data
+  SECTION: $5ddb-$5de0 ($0006 bytes) ["PowerUp animation frames"]
+           $5ddb = floatAnim
+           $5de1 = floatAnimEnd
+  SECTION: $5de1-$5e8a ($00aa bytes) ["GFX Functions"]
+           $5de1 = wFadeOutLUT
+           $5de4 = wFadeInLUT
+           $5de7 = Fade
+           $5df6 = fadeCheck
+           $5df9 = fadeCheck.check
+           $5e25 = fadeOut
+           $5e43 = reset
+           $5e52 = loadCutscene
+           $5e6c = Scroll
+           $5e6d = Scroll.checkScrollCounter
+  SECTION: $5e8b-$5f01 ($0077 bytes) ["Mem"]
+           $5e8b = waitVBlank
+           $5e92 = DMA
+           $5e98 = DMA.wait
+           $5e9c = WriteList
+           $5ea3 = WriteList.loadConstants
+           $5ead = WriteList.applyOffset
+           $5eba = MemCpy2
+           $5ec3 = MemCpy
+           $5ed2 = MemCpyOpt
+           $5ed3 = MemCpyOpt.copyTiles
+           $5edb = MemCpyOpt.incrementCol
+           $5eec = clearTiles
+           $5ef4 = loadUsingStack
+  SECTION: $5f02-$5f69 ($0068 bytes) ["Text functions"]
+           $5f02 = printLine
+           $5f0b = printParagraph
+           $5f0c = printParagraph.continue
+           $5f17 = printParagraph.nextLine
+           $5f22 = blinkText
+           $5f25 = blinkText.check
+           $5f4f = blinkText.notDone
+           $5f65 = blinkText.Blank
+  SECTION: $5f6a-$5fbc ($0053 bytes) ["Misc utils"]
+           $5f6a = padRead
+           $5f9e = pauseUntilJoyPadPressed
+           $5fae = LCD_ON
+           $5fb4 = LCD_OFF
+    SLACK: $2043 bytes
+
+WRAM0 bank #0:
+  SECTION: $c000-$c09f ($00a0 bytes) ["Shadow OAM"]
+           $c000 = _ShadowOAM
+  SECTION: $c0a0-$c0e0 ($0041 bytes) ["GBT_VAR_1"]
+           $c0a0 = gbt_playing
+           $c0a1 = gbt_pattern_array_ptr
+           $c0a3 = gbt_pattern_array_bank
+           $c0a4 = gbt_speed
+           $c0a5 = gbt_temp_play_data
+           $c0b1 = gbt_loop_enabled
+           $c0b2 = gbt_ticks_elapsed
+           $c0b3 = gbt_current_step
+           $c0b4 = gbt_current_pattern
+           $c0b5 = gbt_current_step_data_ptr
+           $c0b7 = gbt_current_step_data_bank
+           $c0b8 = gbt_channels_enabled
+           $c0b9 = gbt_pan
+           $c0bd = gbt_vol
+           $c0c1 = gbt_instr
+           $c0c5 = gbt_freq
+           $c0cb = gbt_channel3_loaded_instrument
+           $c0cc = gbt_arpeggio_freq_index
+           $c0d5 = gbt_arpeggio_enabled
+           $c0d8 = gbt_arpeggio_tick
+           $c0db = gbt_cut_note_tick
+           $c0df = gbt_have_to_stop_next_step
+           $c0e0 = gbt_update_pattern_pointers
+  SECTION: $c0e1-$c0f8 ($0018 bytes) ["FRAME TRACKER TABLE"]
+           $c0e1 = FRAME_TRACKER_TABLE
+  SECTION: $c0f9-$c10f ($0017 bytes) ["General vars"]
+           $c0fe = wCurrentActiveAnims
+           $c105 = _PadData
+           $c106 = _PadDataEdge
+           $c10c = wAnimListIndexPointer
+           $c10e = wTitleState
+           $c10f = wMenu
+  SECTION: $c110-$c113 ($0004 bytes) ["Grafx vars"]
+           $c110 = wFadeSettings
+           $c111 = wFadePos
+           $c112 = wTTF
+           $c113 = wScrollCounter
+  SECTION: $c114-$c116 ($0003 bytes) ["Mem vars"]
+           $c114 = wCpyTileOffset
+           $c115 = wConstListOffset
+           $c116 = wOffsetDelay
+  SECTION: $c117-$c118 ($0002 bytes) ["Stack-pointer return addr."]
+           $c117 = retAddr
+  SECTION: $c119-$c11a ($0002 bytes) ["Text vars"]
+           $c119 = wStartCounter
+           $c11a = wCounterBuffer
+    SLACK: $1ee5 bytes
+
+HRAM bank #0:
+  SECTION: $ff80-$ff7f ($0000 bytes) ["Animation registry vars"]
+  SECTION: $ff80-$ffbc ($003d bytes) ["HRAM General vars"]
+           $ff80 = hStartToggle
+           $ff81 = hPlayerCamPosBufferX
+           $ff83 = hPlayerSpriteOffset
+           $ff84 = hIsGrounded
+           $ff85 = hPlayerVelX
+           $ff87 = hPlayerVelY
+           $ff89 = hPlayerPrevVelX
+           $ff8d = hPlayerPosBufferX
+           $ff9d = hPlayerPosBufferY
+           $ffae = hHasCrossedThreshold
+           $ffaf = hCurrentState
+           $ffb0 = hNextState
+           $ffb1 = hCollisionDetected
+           $ffb2 = hPlayerDirection
+           $ffb3 = hDMA
+    SLACK: $0042 bytes
+

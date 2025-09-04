@@ -1,0 +1,6 @@
+{
+    "makefile.extensionPath": "Rabbit_Knight/Makefile/Makefile",
+    "files.associations": {
+        "windows.h": "c"
+    }
+}

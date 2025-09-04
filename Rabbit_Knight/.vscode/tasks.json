@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile resources",
+            "type": "shell",
+            "command": "windres Compression/resources/menu_resources.rc -O coff -o Compression/resources/menu_resources.res",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Win32 app",
+            "type": "shell",
+            "command": "gcc Compression/sources/RLEwCtrlFlag.c Compression/resources/menu_resources.res -o Compression/Compressor.exe -mwindows",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "Compile resources",
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
